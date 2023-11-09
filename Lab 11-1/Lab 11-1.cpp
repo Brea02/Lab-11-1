@@ -13,7 +13,6 @@ const int ROWS = 4;
 int main() {
 	cout << "Enter a seat or Q to quit: ";
 
-
 }
 
 //findRowINdex: given user input, returns appropriate row index into array
