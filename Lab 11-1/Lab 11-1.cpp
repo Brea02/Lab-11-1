@@ -8,7 +8,7 @@ const int COLUMNS = 13;
 
 //function prototypes
 int findRowIndex(int thisRow);
-//int findSeatIndex(char thisSeat);
+int findSeatIndex(string thisSeat);
 void displaySeatColumn(char seats[][ROWS], int column);
 
 
@@ -50,31 +50,88 @@ int main() {
 		cin >> user_input;
 		if (user_input == "Q") { break; }
 
-		/*
-		//row or DCBA
+
+		//rows - DCAB : change by user input
 		string row_index = user_input.substr(user_input.length() - 1, 1);
-		if (row_index != "D" || row_index != "C" || row_index != "B" || row_index != "A") {
+		//cout << "The char is: " << row_index << endl;
+		if (row_index > "D") {
 			cout << "ERROR - that seat doesn't exists";
 			break;
 		}
-		int row_num;
-		if (row_index == "D") {
-			row_num = 0;
-			findRowIndex(row_num);
+		cout << " seat letter: " << findSeatIndex(row_index) << endl;
+
+
+
+		//columns - numbers 1-13
+		string num_seat;
+		if (user_input.length() == 3) {
+			num_seat = user_input.substr(0, 1) + user_input.substr(1, 1);
 		}
-		if (row_index == "C") {
-			row_num = 1;
-			findRowIndex(row_num);
+		else if (user_input.length() == 2) {
+			num_seat = user_input.substr(0, 1);
 		}
-		if (row_index == "B") {
-			row_num = 2;
-			findRowIndex(row_num);
+
+		//bullshit needed for the useless function
+		int function_needed_num;
+		if (num_seat == "0") {
+			function_needed_num = 0;
 		}
-		if (row_index == "A") {
-			row_num = 3;
-			findRowIndex(row_num);
+		else if (num_seat == "1") {
+			function_needed_num = 1;
 		}
-		*/
+		else if (num_seat == "2") {
+			function_needed_num = 2;
+		}
+		else if (num_seat == "3") {
+			function_needed_num = 3;
+		}
+		else if (num_seat == "4") {
+			function_needed_num = 4;
+		}
+		else if (num_seat == "5") {
+			function_needed_num = 5;
+		}
+		else if (num_seat == "6") {
+			function_needed_num = 6;
+		}
+		else if (num_seat == "7") {
+			function_needed_num = 7;
+		}
+		else if (num_seat == "8") {
+			function_needed_num = 8;
+		}
+		else if (num_seat == "9") {
+			function_needed_num = 9;
+		}
+		else if (num_seat == "10") {
+			function_needed_num = 10;
+		}
+		else if (num_seat == "11") {
+			function_needed_num = 11;
+		}
+		else if (num_seat == "12") {
+			function_needed_num = 12;
+		}
+		else if (num_seat == "13") {
+			function_needed_num = 13;
+		}
+
+		//errors for seats that dont exist
+		if (num_seat < "0" || num_seat > "13") {
+			cout << "ERROR - that seat doesn't exist.";
+			break;
+			findRowIndex(function_needed_num);
+		}
+		if (num_seat == "13" && row_index == "C") {
+			cout << "ERROR - that seat doesn't exist. ";
+			break;
+		}
+		if (num_seat == "13" && row_index == "D") {
+			cout << "ERROR - that seat doesn't exist. ";
+			break;
+		}
+
+		cout << "number seats: " << num_seat;
 
 
 
@@ -101,16 +158,35 @@ void displaySeatColumn(char seats[][ROWS], int column) {
 //param: thisRow - int indicating row selected by user
 //return: appropriate index into D array if the specified row is valid, ERROR otherwise
 int findRowIndex(int thisRow) {
+	int function_num;
+	if (thisRow < 0 || thisRow > 13) {
+		cout << "ERROR - that seat doesn't exist.";
+		function_num = thisRow;
+		return function_num;
+	}
 }
 
-/*
+
 //findSeatINdex: given user input, returns approproate column index into seating chart array
 //param: thisSeat - char indicating selected seat within row
 //return: appropritate index into 2D array is the specified seat is valid, ERROR otherwise
-int findSeatIndex(char thisSeat) {
-
+int findSeatIndex(string thisSeat) {
+	int row;
+	if (thisSeat == "D") {
+		row = 0;
+	}
+	else if (thisSeat == "C") {
+		row = 1;
+	}
+	else if (thisSeat == "B") {
+		row = 2;
+	}
+	else if (thisSeat == "A") {
+		row = 3;
+	}
+	return row;
 }
-*/
+
 
 
 /*
