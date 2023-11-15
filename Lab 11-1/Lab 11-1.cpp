@@ -73,8 +73,8 @@ int main() {
 			num_seat = user_input.substr(0, 1);
 		}
 
-		//bullshit needed for the useless function
-		int function_needed_num;
+		//needed for the function
+		int function_needed_num = -1;
 		if (num_seat == "1") {
 			function_needed_num = 0;
 		}
